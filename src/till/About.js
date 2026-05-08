@@ -1,3 +1,7 @@
+export const ABOUT_DEFAULTS = {
+  photo: '',
+}
+
 export const ABOUT = {
   title: { prefix: '저는 ', name: '송현빈', suffix: '입니다' },
   greeting: {

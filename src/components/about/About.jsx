@@ -1,7 +1,11 @@
 import './About.scss'
 import { ABOUT } from '../../till/About'
+import { usePortfolio } from '../../store/PortfolioContext'
 
 export default function About() {
+  const { data } = usePortfolio()
+  const photo = data.about?.photo
+
   return (
     <section id="about" className="section about">
       <div className="container">
@@ -13,12 +17,16 @@ export default function About() {
 
         <div className="about-grid">
           <div className="about-photo card">
-            <div className="photo-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 100 100" width="60%">
-                <circle cx="50" cy="38" r="18" fill="#2a386a" />
-                <path d="M20 92 C20 70, 80 70, 80 92 Z" fill="#2a386a" />
-              </svg>
-            </div>
+            {photo ? (
+              <img className="about-photo-img" src={photo} alt={ABOUT.title.name} />
+            ) : (
+              <div className="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 100 100" width="60%">
+                  <circle cx="50" cy="38" r="18" fill="#2a386a" />
+                  <path d="M20 92 C20 70, 80 70, 80 92 Z" fill="#2a386a" />
+                </svg>
+              </div>
+            )}
           </div>
 
           <div className="about-content">

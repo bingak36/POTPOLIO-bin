@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { usePortfolio } from '../../store/PortfolioContext'
+import AdminAbout from './AdminAbout'
 import AdminSkills from './AdminSkills'
 import AdminProjects from './AdminProjects'
 import AdminSubProjects from './AdminSubProjects'
@@ -45,6 +46,7 @@ export default function AdminPage() {
         </div>
 
         <div className="admin-content">
+          {tab === 'about' && <AdminAbout />}
           {tab === 'skills' && <AdminSkills />}
           {tab === 'projects' && <AdminProjects />}
           {tab === 'subProjects' && <AdminSubProjects />}

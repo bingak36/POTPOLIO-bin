@@ -1,4 +1,5 @@
 export const ADMIN_TABS = [
+  { id: 'about', label: '소개' },
   { id: 'skills', label: '스킬' },
   { id: 'projects', label: '주요 프로젝트' },
   { id: 'subProjects', label: '서브 프로젝트' },

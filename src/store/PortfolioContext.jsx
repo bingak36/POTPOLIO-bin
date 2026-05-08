@@ -2,9 +2,11 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import { DEFAULT_SKILLS } from '../till/Skills'
 import { DEFAULT_PROJECTS } from '../till/Project'
 import { DEFAULT_SUB_PROJECTS } from '../till/SubProjects'
+import { ABOUT_DEFAULTS } from '../till/About'
 import { STORAGE_KEY } from '../till/Admin'
 
 const DEFAULT_DATA = {
+  about: ABOUT_DEFAULTS,
   skills: DEFAULT_SKILLS,
   projects: DEFAULT_PROJECTS,
   subProjects: DEFAULT_SUB_PROJECTS,
@@ -20,6 +22,7 @@ function loadInitial() {
     const migrateProject = (x) => ({ link: '', thumbnail: '', ...x })
     const migrateSub = (x) => ({ link: '', ...x })
     return {
+      about: { ...ABOUT_DEFAULTS, ...(parsed.about ?? {}) },
       skills: parsed.skills ?? DEFAULT_DATA.skills,
       projects: (parsed.projects ?? DEFAULT_DATA.projects).map(migrateProject),
       subProjects: (parsed.subProjects ?? DEFAULT_DATA.subProjects).map(migrateSub),
@@ -35,7 +38,11 @@ export function PortfolioProvider({ children }) {
   const [data, setData] = useState(loadInitial)
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+    } catch (err) {
+      console.warn('localStorage 저장 실패 (용량 초과 가능)', err)
+    }
   }, [data])
 
   const upsert = (key, item) => {
@@ -53,10 +60,14 @@ export function PortfolioProvider({ children }) {
     setData((prev) => ({ ...prev, [key]: prev[key].filter((x) => x.id !== id) }))
   }
 
+  const patchSection = (key, patch) => {
+    setData((prev) => ({ ...prev, [key]: { ...prev[key], ...patch } }))
+  }
+
   const reset = () => setData(DEFAULT_DATA)
 
   return (
-    <PortfolioContext.Provider value={{ data, upsert, remove, reset, uid }}>
+    <PortfolioContext.Provider value={{ data, upsert, remove, patchSection, reset, uid }}>
       {children}
     </PortfolioContext.Provider>
   )
