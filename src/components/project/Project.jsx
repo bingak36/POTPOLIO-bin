@@ -1,12 +1,13 @@
-import './Project.css'
+import './Project.scss'
 import { usePortfolio } from '../../store/PortfolioContext'
+import { PROJECTS_TITLE, PROJECT_LINK_PLACEHOLDER } from '../../till/Project'
 
 export default function Project() {
   const { data } = usePortfolio()
   return (
     <section id="projects" className="section projects">
       <div className="container">
-        <h2 className="section-title">주요 프로젝트</h2>
+        <h2 className="section-title">{PROJECTS_TITLE}</h2>
         <div className="projects-grid">
           {data.projects.map((p) => (
             <a
@@ -34,7 +35,7 @@ export default function Project() {
                 </div>
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>
-                {!p.link && <span className="project-soon">링크 준비중</span>}
+                {!p.link && <span className="project-soon">{PROJECT_LINK_PLACEHOLDER}</span>}
               </div>
             </a>
           ))}

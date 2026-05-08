@@ -1,0 +1,30 @@
+@use '../../styles/variables' as v;
+
+.page-header {
+  padding: 70px 0 30px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+
+  h1 {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(180deg, #fff, #c8d2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+}
+
+@media (max-width: v.$bp-sm) {
+  .page-header {
+    padding: 50px 0 24px;
+    h1 { font-size: 32px; }
+  }
+}

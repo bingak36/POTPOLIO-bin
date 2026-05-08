@@ -1,12 +1,6 @@
 import { useState } from 'react'
-import './Contact.css'
-
-const INFO = [
-  { icon: '📧', label: '이메일', value: 'qlsl9042@gmail.com' },
-  { icon: '📱', label: '전화', value: '010-0000-0000' },
-  { icon: '📍', label: '위치', value: '대한민국 서울' },
-  { icon: '🐙', label: 'GitHub', value: 'github.com/bingak' },
-]
+import './Contact.scss'
+import { CONTACT_INFO, CONTACT_COPY } from '../../till/Contact'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -20,20 +14,18 @@ export default function Contact() {
     e.preventDefault()
     setSent(true)
     setForm({ name: '', email: '', message: '' })
-    setTimeout(() => setSent(false), 2500)
+    setTimeout(() => setSent(false), CONTACT_COPY.doneTimeout)
   }
 
   return (
     <section id="contact" className="section contact">
       <div className="container">
-        <h2 className="section-title">함께 만들어봐요</h2>
-        <p className="contact-sub">
-          새로운 협업 제안이나 문의는 언제든 환영입니다 ✉
-        </p>
+        <h2 className="section-title">{CONTACT_COPY.title}</h2>
+        <p className="contact-sub">{CONTACT_COPY.sub}</p>
 
         <div className="contact-grid">
           <div className="contact-info">
-            {INFO.map((i) => (
+            {CONTACT_INFO.map((i) => (
               <div key={i.label} className="card info-item">
                 <span className="info-icon">{i.icon}</span>
                 <div>
@@ -52,7 +44,7 @@ export default function Contact() {
                   name="name"
                   value={form.name}
                   onChange={onChange}
-                  placeholder="홍길동"
+                  placeholder={CONTACT_COPY.placeholders.name}
                   required
                 />
               </label>
@@ -63,7 +55,7 @@ export default function Contact() {
                   name="email"
                   value={form.email}
                   onChange={onChange}
-                  placeholder="you@example.com"
+                  placeholder={CONTACT_COPY.placeholders.email}
                   required
                 />
               </label>
@@ -75,12 +67,12 @@ export default function Contact() {
                 rows="5"
                 value={form.message}
                 onChange={onChange}
-                placeholder="협업 제안, 프로젝트 문의 등 자유롭게 작성해주세요."
+                placeholder={CONTACT_COPY.placeholders.message}
                 required
               />
             </label>
             <button type="submit" className="btn btn-primary">
-              {sent ? '전송됨!' : '메시지 보내기'}
+              {sent ? CONTACT_COPY.submitDone : CONTACT_COPY.submitIdle}
             </button>
           </form>
         </div>

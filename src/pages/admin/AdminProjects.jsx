@@ -1,7 +1,6 @@
 import { useRef } from 'react'
 import { usePortfolio } from '../../store/PortfolioContext'
-
-const MAX_BYTES = 1_500_000
+import { THUMB_MAX_BYTES as MAX_BYTES } from '../../till/Admin'
 
 export default function AdminProjects() {
   const { data, upsert, remove, uid } = usePortfolio()

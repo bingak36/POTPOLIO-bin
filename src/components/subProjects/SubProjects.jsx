@@ -1,15 +1,14 @@
-import './SubProjects.css'
+import './SubProjects.scss'
 import { usePortfolio } from '../../store/PortfolioContext'
+import { SUB_PROJECTS_HEADER, SUB_PROJECT_LINK_PLACEHOLDER } from '../../till/SubProjects'
 
 export default function SubProjects() {
   const { data } = usePortfolio()
   return (
     <section className="section sub-projects">
       <div className="container">
-        <h3 className="sub-projects-title">서브 프로젝트</h3>
-        <p className="sub-projects-desc">
-          짬짬이 만든 사이드 프로젝트와 토이 프로젝트 모음
-        </p>
+        <h3 className="sub-projects-title">{SUB_PROJECTS_HEADER.title}</h3>
+        <p className="sub-projects-desc">{SUB_PROJECTS_HEADER.desc}</p>
         <div className="sub-projects-grid">
           {data.subProjects.map((p) => (
             <a
@@ -30,7 +29,7 @@ export default function SubProjects() {
                   <span key={t} className="chip">{t}</span>
                 ))}
               </div>
-              {!p.link && <span className="sub-project-soon">링크 준비중</span>}
+              {!p.link && <span className="sub-project-soon">{SUB_PROJECT_LINK_PLACEHOLDER}</span>}
             </a>
           ))}
         </div>

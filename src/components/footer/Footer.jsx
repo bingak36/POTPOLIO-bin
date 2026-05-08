@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom'
-import './Footer.css'
+import './Footer.scss'
+import { FOOTER } from '../../till/Footer'
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-inner">
-        <span>© {new Date().getFullYear()} 송현빈. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} {FOOTER.owner}. All rights reserved.</span>
         <div className="footer-links">
-          <Link to="/about">소개</Link>
-          <Link to="/projects">프로젝트</Link>
-          <Link to="/contact">연락처</Link>
+          {FOOTER.links.map((l) => (
+            <Link key={l.to} to={l.to}>{l.label}</Link>
+          ))}
         </div>
       </div>
     </footer>

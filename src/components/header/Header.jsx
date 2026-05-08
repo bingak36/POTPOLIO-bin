@@ -1,16 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
-import './Header.css'
-
-const NAV = [
-  { to: '/', label: '홈', end: true },
-  { to: '/about', label: '소개' },
-  { to: '/skills', label: '스킬' },
-  { to: '/projects', label: '프로젝트' },
-  { to: '/contact', label: '연락처' },
-]
-
-const ADMIN_KEYWORD = 'admin'
+import './Header.scss'
+import { NAV, ADMIN_KEYWORD, ADMIN_BUFFER_TIMEOUT } from '../../till/Header'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -38,7 +29,7 @@ export default function Header() {
 
       bufferRef.current = (bufferRef.current + e.key).toLowerCase().slice(-ADMIN_KEYWORD.length)
       clearTimeout(timer)
-      timer = setTimeout(() => { bufferRef.current = '' }, 1500)
+      timer = setTimeout(() => { bufferRef.current = '' }, ADMIN_BUFFER_TIMEOUT)
 
       if (bufferRef.current === ADMIN_KEYWORD) {
         bufferRef.current = ''
@@ -66,9 +57,7 @@ export default function Header() {
               key={item.to}
               to={item.to}
               end={item.end}
-              className={({ isActive }) =>
-                `nav-link ${isActive ? 'active' : ''}`
-              }
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
             >
               {item.label}
             </NavLink>
@@ -84,9 +73,7 @@ export default function Header() {
           <span /><span /><span />
         </button>
 
-        {open && (
-          <div className="nav-backdrop" onClick={() => setOpen(false)} />
-        )}
+        {open && <div className="nav-backdrop" onClick={() => setOpen(false)} />}
       </div>
     </header>
   )

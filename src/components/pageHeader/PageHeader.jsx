@@ -1,4 +1,4 @@
-import './PageHeader.css'
+import './PageHeader.scss'
 
 export default function PageHeader({ title, subtitle }) {
   return (

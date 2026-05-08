@@ -1,25 +1,34 @@
 import { Link } from 'react-router-dom'
-import './Hero.css'
+import './Hero.scss'
+import { HERO } from '../../till/Hero'
 
 export default function Hero() {
   return (
     <section id="top" className="hero">
       <div className="container hero-inner">
         <div className="hero-badges">
-          <span className="chip">소프트웨어 엔지니어</span>
-          <span className="chip">서울 거주</span>
+          {HERO.badges.map((b) => (
+            <span key={b} className="chip">{b}</span>
+          ))}
         </div>
         <h1 className="hero-name">
-          송현빈<span className="cursor">_</span>
+          {HERO.name}<span className="cursor">{HERO.cursor}</span>
         </h1>
-        <p className="hero-role">Fullstack Developer</p>
+        <p className="hero-role">{HERO.role}</p>
         <p className="hero-desc">
-          사용자 경험을 중심으로 웹과 모바일을 만드는 개발자입니다.<br />
-          작은 디테일까지 신경쓰는 코드를 지향합니다.
+          {HERO.desc.map((line, i) => (
+            <span key={i}>
+              {line}
+              {i < HERO.desc.length - 1 && <br />}
+            </span>
+          ))}
         </p>
         <div className="hero-cta">
-          <Link to="/projects" className="btn btn-primary">프로젝트 보기</Link>
-          <Link to="/contact" className="btn btn-ghost">연락하기</Link>
+          {HERO.cta.map((c) => (
+            <Link key={c.to} to={c.to} className={`btn btn-${c.variant}`}>
+              {c.label}
+            </Link>
+          ))}
         </div>
       </div>
     </section>
