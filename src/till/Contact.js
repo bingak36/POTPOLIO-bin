@@ -1,6 +1,6 @@
 export const CONTACT_INFO = [
-  { icon: '📧', label: 'Email', value: '[email protected]' },
-  { icon: '🐙', label: 'GitHub', value: 'github.com/hyunbin-song' },
+  { icon: '📧', label: 'Email', value: 'qlsl9042@gmail.com' },
+  { icon: '🐙', label: 'GitHub', value: 'github.com/bingak' },
   { icon: '💼', label: 'LinkedIn', value: '송현빈' },
   { icon: '📝', label: '기술 블로그', value: 'Velog' },
 ]

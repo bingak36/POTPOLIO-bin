@@ -1,6 +1,8 @@
 import './About.scss'
 import { ABOUT_DEFAULTS } from '../../till/About'
 import { usePortfolio } from '../../store/PortfolioContext'
+import SectionHeading from '../sectionHeading/SectionHeading'
+import { SECTION_HEADINGS } from '../../till/Sections'
 
 export default function About() {
   const { data } = usePortfolio()
@@ -10,11 +12,11 @@ export default function About() {
   return (
     <section id="about" className="section about">
       <div className="container">
-        <h2 className="about-title">
+        <SectionHeading heading={SECTION_HEADINGS.about} className="about-heading">
           {about.title.prefix}
           <span className="accent">{about.title.name}</span>
           {about.title.suffix}
-        </h2>
+        </SectionHeading>
 
         <div className="about-grid">
           <div className="about-photo card">

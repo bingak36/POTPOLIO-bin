@@ -1,19 +1,14 @@
 import './SubProjects.scss'
 import { usePortfolio } from '../../store/PortfolioContext'
-import { SUB_PROJECTS_HEADER } from '../../till/SubProjects'
+import SectionHeading from '../sectionHeading/SectionHeading'
+import { SECTION_HEADINGS } from '../../till/Sections'
 
 export default function SubProjects() {
   const { data } = usePortfolio()
   return (
     <section className="section sub-projects">
       <div className="container">
-        {SUB_PROJECTS_HEADER.eyebrow && (
-          <span className="sub-projects-eyebrow">{SUB_PROJECTS_HEADER.eyebrow}</span>
-        )}
-        <h3 className="sub-projects-title">{SUB_PROJECTS_HEADER.title}</h3>
-        {SUB_PROJECTS_HEADER.desc && (
-          <p className="sub-projects-desc">{SUB_PROJECTS_HEADER.desc}</p>
-        )}
+        <SectionHeading as="h3" heading={SECTION_HEADINGS.subProjects} />
         <div className="sub-projects-grid">
           {data.subProjects.map((p) => (
             <a

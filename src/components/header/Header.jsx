@@ -3,11 +3,25 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import './Header.scss'
 import { NAV, ADMIN_KEYWORD, ADMIN_BUFFER_TIMEOUT } from '../../till/Header'
 
+const THEME_KEY = 'portfolio-theme'
+
+function getInitialTheme() {
+  const saved = localStorage.getItem(THEME_KEY)
+  if (saved === 'dark' || saved === 'light') return saved
+  return window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const [theme, setTheme] = useState(getInitialTheme)
   const location = useLocation()
   const navigate = useNavigate()
   const bufferRef = useRef('')
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    localStorage.setItem(THEME_KEY, theme)
+  }, [theme])
 
   useEffect(() => {
     setOpen(false)
@@ -43,6 +57,10 @@ export default function Header() {
     }
   }, [navigate])
 
+  const toggleTheme = () => {
+    setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
+  }
+
   return (
     <header className="header">
       <div className="container header-inner">
@@ -51,27 +69,40 @@ export default function Header() {
           송.현빈
         </NavLink>
 
-        <nav className={`nav ${open ? 'nav-open' : ''}`}>
-          {NAV.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
+        <div className="header-right">
+          <nav className={`nav ${open ? 'nav-open' : ''}`}>
+            {NAV.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.end}
+                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
 
-        <button
-          className={`hamburger ${open ? 'is-open' : ''}`}
-          aria-label="메뉴 열기"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span /><span /><span />
-        </button>
+          <div className="header-tools">
+            <button
+              type="button"
+              className="theme-toggle"
+              aria-label={theme === 'dark' ? '라이트 모드로 변경' : '다크 모드로 변경'}
+              onClick={toggleTheme}
+            >
+              <span aria-hidden="true">{theme === 'dark' ? '☀' : '☾'}</span>
+            </button>
+
+            <button
+              className={`hamburger ${open ? 'is-open' : ''}`}
+              aria-label="메뉴 열기"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span /><span /><span />
+            </button>
+          </div>
+        </div>
 
         {open && <div className="nav-backdrop" onClick={() => setOpen(false)} />}
       </div>

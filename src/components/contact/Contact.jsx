@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './Contact.scss'
 import { CONTACT_INFO, CONTACT_COPY } from '../../till/Contact'
+import SectionHeading from '../sectionHeading/SectionHeading'
+import { SECTION_HEADINGS } from '../../till/Sections'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
@@ -20,8 +22,13 @@ export default function Contact() {
   return (
     <section id="contact" className="section contact">
       <div className="container">
-        <h2 className="section-title">{CONTACT_COPY.title}</h2>
-        <p className="contact-sub">{CONTACT_COPY.sub}</p>
+        <SectionHeading
+          heading={{
+            ...SECTION_HEADINGS.contact,
+            title: CONTACT_COPY.title || SECTION_HEADINGS.contact.title,
+          }}
+          desc={CONTACT_COPY.sub || SECTION_HEADINGS.contact.desc}
+        />
 
         <div className="contact-grid">
           <div className="contact-info">

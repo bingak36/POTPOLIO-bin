@@ -1,11 +1,6 @@
 @use '../../styles/variables' as v;
 
-.about-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 28px;
-  letter-spacing: -0.5px;
-
+.about-heading {
   .accent {
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
     -webkit-background-clip: text;

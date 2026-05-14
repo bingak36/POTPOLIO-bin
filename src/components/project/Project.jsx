@@ -1,13 +1,14 @@
 import './Project.scss'
 import { usePortfolio } from '../../store/PortfolioContext'
-import { PROJECTS_TITLE } from '../../till/Project'
+import SectionHeading from '../sectionHeading/SectionHeading'
+import { SECTION_HEADINGS } from '../../till/Sections'
 
 export default function Project() {
   const { data } = usePortfolio()
   return (
     <section id="projects" className="section projects">
       <div className="container">
-        <h2 className="section-title">{PROJECTS_TITLE}</h2>
+        <SectionHeading heading={SECTION_HEADINGS.projects} />
         <div className="projects-grid">
           {data.projects.map((p) => (
             <article key={p.id} className="card project-card">

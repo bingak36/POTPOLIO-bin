@@ -40,6 +40,7 @@ $bp-xl: 1024px;
 
 // Runtime CSS custom properties (for `var(--name)` usage in any file)
 :root {
+  color-scheme: dark;
   --bg: #{$bg};
   --bg-2: #{$bg-2};
   --card: #{$card};
@@ -54,4 +55,28 @@ $bp-xl: 1024px;
   --accent-glow: #{$accent-glow};
   --chip-bg: #{$chip-bg};
   --shadow: #{$shadow};
+  --header-bg: rgba(10, 15, 31, 0.72);
+  --body-glow-1: rgba(141, 107, 255, 0.18);
+  --body-glow-2: rgba(108, 140, 255, 0.18);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f5f7ff;
+  --bg-2: #edf2ff;
+  --card: #ffffff;
+  --card-2: #edf3ff;
+  --border: #d8e2ff;
+  --border-2: #aebff0;
+  --text: #10172f;
+  --text-dim: #4f5f82;
+  --text-muted: #7a86a4;
+  --accent: #3768e8;
+  --accent-2: #a33fe0;
+  --accent-glow: rgba(55, 104, 232, 0.22);
+  --chip-bg: #eef4ff;
+  --shadow: 0 14px 34px rgba(37, 54, 104, 0.14);
+  --header-bg: rgba(245, 247, 255, 0.82);
+  --body-glow-1: rgba(163, 63, 224, 0.14);
+  --body-glow-2: rgba(55, 104, 232, 0.16);
 }

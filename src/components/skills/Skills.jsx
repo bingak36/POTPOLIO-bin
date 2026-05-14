@@ -1,13 +1,14 @@
 import './Skills.scss'
 import { usePortfolio } from '../../store/PortfolioContext'
-import { SKILLS_TITLE } from '../../till/Skills'
+import SectionHeading from '../sectionHeading/SectionHeading'
+import { SECTION_HEADINGS } from '../../till/Sections'
 
 export default function Skills() {
   const { data } = usePortfolio()
   return (
     <section id="skills" className="section skills">
       <div className="container">
-        <h2 className="section-title">{SKILLS_TITLE}</h2>
+        <SectionHeading heading={SECTION_HEADINGS.skills} />
         <div className="skills-grid">
           {data.skills.map((s) => (
             <div key={s.id} className="card skill-card">

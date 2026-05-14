@@ -17,7 +17,7 @@ export default function App() {
 
   useEffect(() => {
     const targets = document.querySelectorAll(
-      '.section, .hero-inner, .card, .section-title, .about-title, .sub-projects-eyebrow, .sub-projects-title'
+      '.section, .hero-inner, .card, .section-heading'
     )
 
     targets.forEach((target, index) => {
