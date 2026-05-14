@@ -3,21 +3,25 @@ export const ABOUT_DEFAULTS = {
 }
 
 export const ABOUT = {
-  title: { prefix: '저는 ', name: '송현빈', suffix: '입니다' },
+  title: { prefix: '저는 ', name: '이런 사람', suffix: '입니다' },
   greeting: {
-    headline: '안녕하세요, 풀스택 개발자 송현빈입니다',
-    body: '새로운 기술을 배우고 적용하는 것을 즐기며, 팀과의 협업에서 시너지를 만들어내는 개발자입니다.',
+    headline: '안녕하세요, 풀스택 개발자 송현빈입니다.',
+    body: '성능, 유지보수성, 팀 협업을 함께 생각하며, 새로운 기술을 서비스와 사용자 경험으로 연결하는 데 큰 흥미를 가지고 있습니다.',
   },
   meta: [
-    { label: '학력', value: '○○대학교 컴퓨터공학과', sub: '2022.03 – 재학중' },
-    { label: '이메일', value: 'qlsl9042@gmail.com', sub: '언제든 연락주세요' },
+    { label: 'SCHOOL', value: '경성대학교 전자정보융합학부 소프트웨어융합학과', sub: '' },
+    { label: 'STU_ID', value: '2201119', sub: '' },
+    { label: 'EMAIL', value: 'qlsl9042@gmail.com', sub: '' },
+    { label: 'GITHUB', value: 'github.com/hyunbin-song', sub: '' },
   ],
   detail: {
-    title: '관심 분야',
+    title: 'EDUCATION',
     items: [
-      '· 웹 프론트엔드 / 백엔드 풀스택 개발',
-      '· 사용자 경험을 고려한 UI/UX 디자인',
-      '· 클라우드 인프라와 DevOps 자동화',
+      '2022.03 - 재학',
+      '경성대학교 소프트웨어융합학과 재학',
+      '소프트웨어 개발 일반 (웹, 데이터베이스, 알고리즘) 학습',
+      '팀 프로젝트 서비스 개발 경험 (기획, 구현)',
+      '교내 해커톤 2회 참가 (우수상 수상)',
     ],
   },
 }

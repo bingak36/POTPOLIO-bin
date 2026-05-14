@@ -48,7 +48,7 @@ export default function Header() {
       <div className="container header-inner">
         <NavLink to="/" className="logo" end>
           <span className="logo-dot" />
-          Portfolio
+          송.현빈
         </NavLink>
 
         <nav className={`nav ${open ? 'nav-open' : ''}`}>

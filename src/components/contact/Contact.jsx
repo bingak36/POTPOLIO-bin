@@ -3,7 +3,7 @@ import './Contact.scss'
 import { CONTACT_INFO, CONTACT_COPY } from '../../till/Contact'
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [sent, setSent] = useState(false)
 
   const onChange = (e) => {
@@ -13,7 +13,7 @@ export default function Contact() {
   const onSubmit = (e) => {
     e.preventDefault()
     setSent(true)
-    setForm({ name: '', email: '', message: '' })
+    setForm({ name: '', email: '', subject: '', message: '' })
     setTimeout(() => setSent(false), CONTACT_COPY.doneTimeout)
   }
 
@@ -60,6 +60,16 @@ export default function Contact() {
                 />
               </label>
             </div>
+            <label className="form-row-full">
+              <span>제목</span>
+              <input
+                name="subject"
+                value={form.subject}
+                onChange={onChange}
+                placeholder={CONTACT_COPY.placeholders.subject}
+                required
+              />
+            </label>
             <label className="form-row-full">
               <span>메시지</span>
               <textarea

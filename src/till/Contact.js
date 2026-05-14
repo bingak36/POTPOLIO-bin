@@ -1,19 +1,20 @@
 export const CONTACT_INFO = [
-  { icon: '📧', label: '이메일', value: 'qlsl9042@gmail.com' },
-  { icon: '📱', label: '전화', value: '010-0000-0000' },
-  { icon: '📍', label: '위치', value: '대한민국 서울' },
-  { icon: '🐙', label: 'GitHub', value: 'github.com/bingak' },
+  { icon: '📧', label: 'Email', value: '[email protected]' },
+  { icon: '🐙', label: 'GitHub', value: 'github.com/hyunbin-song' },
+  { icon: '💼', label: 'LinkedIn', value: '송현빈' },
+  { icon: '📝', label: '기술 블로그', value: 'Velog' },
 ]
 
 export const CONTACT_COPY = {
   title: '함께 만들어봐요',
-  sub: '새로운 협업 제안이나 문의는 언제든 환영입니다 ✉',
+  sub: '새로운 인연을 환영합니다🚀',
   placeholders: {
     name: '홍길동',
-    email: 'you@example.com',
-    message: '협업 제안, 프로젝트 문의 등 자유롭게 작성해주세요.',
+    email: 'example@email.com',
+    subject: '협업 제안드립니다',
+    message: '안녕하세요! 프로젝트 관련하여 이야기 나눠보고 싶어서 연락드립니다...',
   },
   submitIdle: '메시지 보내기',
-  submitDone: '전송됨!',
+  submitDone: '전송 완료',
   doneTimeout: 2500,
 }

@@ -1,10 +1,9 @@
 export const DEFAULT_SKILLS = [
-  { id: 's1', icon: '⚡', title: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Vite'] },
-  { id: 's2', icon: '🛠', title: 'Backend', items: ['Node.js', 'Express', 'Python', 'FastAPI'] },
-  { id: 's3', icon: '🗄', title: 'Database', items: ['PostgreSQL', 'MongoDB', 'Redis'] },
-  { id: 's4', icon: '🎨', title: 'Design & Tools', items: ['Figma', 'Photoshop', 'Notion'] },
-  { id: 's5', icon: '☁', title: 'DevOps', items: ['AWS', 'Docker', 'GitHub Actions'] },
-  { id: 's6', icon: '🤝', title: 'Etc.', items: ['Git', 'Linux', 'Agile'] },
+  { id: 's1', icon: '💻', title: 'Frontend', items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS'] },
+  { id: 's2', icon: '🌐', title: 'Backend', items: ['Node.js', 'Express', 'Java', 'Spring Boot', 'Python', 'FastAPI', 'REST API'] },
+  { id: 's3', icon: '🗄️', title: 'Database', items: ['MySQL'] },
+  { id: 's4', icon: '☁️', title: 'DevOps & Cloud', items: ['Git', 'GitHub Actions', 'Docker', 'AWS EC2', 'Nginx', 'Linux'] },
+  { id: 's5', icon: '🧰', title: 'Etc.', items: ['Unity (C#)', 'OpenCV', 'PyTorch', 'Figma', 'Tinker'] },
 ]
 
 export const SKILLS_TITLE = '기술 스택'

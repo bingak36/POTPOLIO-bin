@@ -15,6 +15,7 @@ export default function Skills() {
                 <span className="skill-icon">{s.icon}</span>
                 <h3>{s.title}</h3>
               </div>
+              {s.desc && <p className="skill-desc">{s.desc}</p>}
               <div className="skill-items">
                 {s.items.map((it) => (
                   <span key={it} className="chip">{it}</span>

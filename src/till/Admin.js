@@ -1,6 +1,6 @@
 export const ADMIN_TABS = [
   { id: 'about', label: '소개' },
-  { id: 'skills', label: '스킬' },
+  { id: 'skills', label: '기술 스택' },
   { id: 'projects', label: '주요 프로젝트' },
   { id: 'subProjects', label: '서브 프로젝트' },
 ]
@@ -13,4 +13,4 @@ export const ADMIN_COPY = {
 
 export const THUMB_MAX_BYTES = 1_500_000
 
-export const STORAGE_KEY = 'portfolio-data-v1'
+export const STORAGE_KEY = 'portfolio-data-v4'

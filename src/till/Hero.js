@@ -1,11 +1,11 @@
 export const HERO = {
-  badges: ['소프트웨어 엔지니어', '서울 거주'],
+  badges: ['경성대학교', '모든 주 학습'],
   name: '송현빈',
   cursor: '_',
   role: 'Fullstack Developer',
   desc: [
-    '사용자 경험을 중심으로 웹과 모바일을 만드는 개발자입니다.',
-    '작은 디테일까지 신경쓰는 코드를 지향합니다.',
+    '사용자 경험을 최우선으로 생각하며 Frontend부터 Backend까지,',
+    '완성도 높은 서비스를 처음부터 끝까지 구현합니다.',
   ],
   cta: [
     { to: '/projects', label: '프로젝트 보기', variant: 'primary' },

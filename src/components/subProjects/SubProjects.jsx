@@ -1,14 +1,19 @@
 import './SubProjects.scss'
 import { usePortfolio } from '../../store/PortfolioContext'
-import { SUB_PROJECTS_HEADER, SUB_PROJECT_LINK_PLACEHOLDER } from '../../till/SubProjects'
+import { SUB_PROJECTS_HEADER } from '../../till/SubProjects'
 
 export default function SubProjects() {
   const { data } = usePortfolio()
   return (
     <section className="section sub-projects">
       <div className="container">
+        {SUB_PROJECTS_HEADER.eyebrow && (
+          <span className="sub-projects-eyebrow">{SUB_PROJECTS_HEADER.eyebrow}</span>
+        )}
         <h3 className="sub-projects-title">{SUB_PROJECTS_HEADER.title}</h3>
-        <p className="sub-projects-desc">{SUB_PROJECTS_HEADER.desc}</p>
+        {SUB_PROJECTS_HEADER.desc && (
+          <p className="sub-projects-desc">{SUB_PROJECTS_HEADER.desc}</p>
+        )}
         <div className="sub-projects-grid">
           {data.subProjects.map((p) => (
             <a
@@ -29,7 +34,6 @@ export default function SubProjects() {
                   <span key={t} className="chip">{t}</span>
                 ))}
               </div>
-              {!p.link && <span className="sub-project-soon">{SUB_PROJECT_LINK_PLACEHOLDER}</span>}
             </a>
           ))}
         </div>

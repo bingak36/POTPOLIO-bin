@@ -1,9 +1,9 @@
 export const NAV = [
-  { to: '/', label: '홈', end: true },
-  { to: '/about', label: '소개' },
-  { to: '/skills', label: '스킬' },
-  { to: '/projects', label: '프로젝트' },
-  { to: '/contact', label: '연락처' },
+  { to: '/', label: 'Home', end: true },
+  { to: '/about', label: './about' },
+  { to: '/skills', label: './skills' },
+  { to: '/projects', label: './projects' },
+  { to: '/contact', label: './contact' },
 ]
 
 export const ADMIN_KEYWORD = 'admin'
