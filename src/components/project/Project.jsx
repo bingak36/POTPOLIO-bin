@@ -3,6 +3,13 @@ import { usePortfolio } from '../../store/PortfolioContext'
 import SectionHeading from '../sectionHeading/SectionHeading'
 import { SECTION_HEADINGS } from '../../till/Sections'
 
+const getProjectHref = (link) => {
+  const value = link?.trim()
+  if (!value) return ''
+  if (/^(https?:\/\/|mailto:|tel:|#)/i.test(value)) return value
+  return `https://${value}`
+}
+
 export default function Project() {
   const { data } = usePortfolio()
   return (
@@ -10,8 +17,18 @@ export default function Project() {
       <div className="container">
         <SectionHeading heading={SECTION_HEADINGS.projects} />
         <div className="projects-grid">
-          {data.projects.map((p) => (
-            <article key={p.id} className="card project-card">
+          {data.projects.map((p) => {
+            const href = getProjectHref(p.link)
+            const CardTag = href ? 'a' : 'article'
+
+            return (
+            <CardTag
+              key={p.id}
+              className={`card project-card ${href ? 'project-card-link' : ''}`}
+              href={href || undefined}
+              target={href ? '_blank' : undefined}
+              rel={href ? 'noopener noreferrer' : undefined}
+            >
               <div
                 className="project-thumb"
                 style={p.thumbnail ? undefined : { background: p.gradient }}
@@ -43,8 +60,9 @@ export default function Project() {
                   ))}
                 </div>
               </div>
-            </article>
-          ))}
+            </CardTag>
+            )
+          })}
         </div>
       </div>
     </section>

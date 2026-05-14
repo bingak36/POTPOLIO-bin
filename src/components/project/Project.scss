@@ -19,6 +19,10 @@
   &:hover { transform: translateY(-3px); }
 }
 
+.project-card-link {
+  cursor: pointer;
+}
+
 .project-thumb {
   min-height: 100%;
   display: flex;
