@@ -13,4 +13,4 @@ export const ADMIN_COPY = {
 
 export const THUMB_MAX_BYTES = 1_500_000
 
-export const STORAGE_KEY = 'portfolio-data-v5'
+export const STORAGE_KEY = 'portfolio-data-v8'

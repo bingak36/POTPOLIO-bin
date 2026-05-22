@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { usePortfolio } from '../../store/PortfolioContext'
+import { usePortfolio } from '../../store/usePortfolio'
 import AdminAbout from './AdminAbout'
 import AdminSkills from './AdminSkills'
 import AdminProjects from './AdminProjects'
 import AdminSubProjects from './AdminSubProjects'
-import { ADMIN_TABS, ADMIN_COPY } from '../../till/Admin'
+import { ADMIN_TABS, ADMIN_COPY } from '../../utill/Admin'
 import './AdminPage.scss'
 
 export default function AdminPage() {

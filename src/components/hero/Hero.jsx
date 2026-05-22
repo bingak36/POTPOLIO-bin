@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './Hero.scss'
-import { HERO } from '../../till/Hero'
+import { HERO } from '../../utill/Hero'
 
 export default function Hero() {
   return (

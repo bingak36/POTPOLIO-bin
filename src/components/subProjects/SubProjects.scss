@@ -21,19 +21,11 @@
   gap: 18px;
   min-height: 240px;
   padding: 24px;
-  cursor: pointer;
   color: inherit;
   text-decoration: none;
   transition: transform 0.2s, border-color 0.2s;
 
   &:hover { transform: translateY(-2px); }
-
-  &.is-disabled {
-    cursor: default;
-    opacity: 0.92;
-
-    &:hover { transform: none; }
-  }
 
   h4 {
     font-size: 17px;

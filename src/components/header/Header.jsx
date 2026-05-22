@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import './Header.scss'
-import { NAV, ADMIN_KEYWORD, ADMIN_BUFFER_TIMEOUT } from '../../till/Header'
+import { NAV, ADMIN_KEYWORD, ADMIN_BUFFER_TIMEOUT } from '../../utill/Header'
 
 const THEME_KEY = 'portfolio-theme'
 
@@ -14,7 +14,6 @@ function getInitialTheme() {
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [theme, setTheme] = useState(getInitialTheme)
-  const location = useLocation()
   const navigate = useNavigate()
   const bufferRef = useRef('')
 
@@ -22,10 +21,6 @@ export default function Header() {
     document.documentElement.dataset.theme = theme
     localStorage.setItem(THEME_KEY, theme)
   }, [theme])
-
-  useEffect(() => {
-    setOpen(false)
-  }, [location.pathname])
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -64,7 +59,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container header-inner">
-        <NavLink to="/" className="logo" end>
+        <NavLink to="/" className="logo" onClick={() => setOpen(false)} end>
           <span className="logo-dot" />
           송.현빈
         </NavLink>
@@ -76,6 +71,7 @@ export default function Header() {
                 key={item.to}
                 to={item.to}
                 end={item.end}
+                onClick={() => setOpen(false)}
                 className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
               >
                 {item.label}

@@ -1,4 +1,4 @@
-import { usePortfolio } from '../../store/PortfolioContext'
+import { usePortfolio } from '../../store/usePortfolio'
 
 export default function AdminSubProjects() {
   const { data, upsert, remove, uid } = usePortfolio()
@@ -19,7 +19,6 @@ export default function AdminSubProjects() {
       title: '새 서브 프로젝트',
       desc: '설명을 입력하세요',
       tags: [],
-      link: '',
     })
   }
 
@@ -62,15 +61,6 @@ export default function AdminSubProjects() {
                   className="admin-textarea"
                   value={s.desc}
                   onChange={(e) => updateField(s, 'desc', e.target.value)}
-                />
-              </label>
-              <label className="admin-label">
-                <span>링크 URL (비우면 비활성)</span>
-                <input
-                  className="admin-input"
-                  value={s.link || ''}
-                  placeholder="https://..."
-                  onChange={(e) => updateField(s, 'link', e.target.value)}
                 />
               </label>
             </div>

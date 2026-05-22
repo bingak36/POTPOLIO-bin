@@ -1,7 +1,7 @@
 import './Skills.scss'
-import { usePortfolio } from '../../store/PortfolioContext'
+import { usePortfolio } from '../../store/usePortfolio'
 import SectionHeading from '../sectionHeading/SectionHeading'
-import { SECTION_HEADINGS } from '../../till/Sections'
+import { SECTION_HEADINGS } from '../../utill/Sections'
 
 export default function Skills() {
   const { data } = usePortfolio()

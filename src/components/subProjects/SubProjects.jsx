@@ -1,7 +1,7 @@
 import './SubProjects.scss'
-import { usePortfolio } from '../../store/PortfolioContext'
+import { usePortfolio } from '../../store/usePortfolio'
 import SectionHeading from '../sectionHeading/SectionHeading'
-import { SECTION_HEADINGS } from '../../till/Sections'
+import { SECTION_HEADINGS } from '../../utill/Sections'
 
 export default function SubProjects() {
   const { data } = usePortfolio()
@@ -11,14 +11,7 @@ export default function SubProjects() {
         <SectionHeading as="h3" heading={SECTION_HEADINGS.subProjects} />
         <div className="sub-projects-grid">
           {data.subProjects.map((p) => (
-            <a
-              key={p.id}
-              href={p.link || undefined}
-              target={p.link ? '_blank' : undefined}
-              rel={p.link ? 'noopener noreferrer' : undefined}
-              className={`card sub-project-item ${p.link ? '' : 'is-disabled'}`}
-              aria-disabled={!p.link}
-            >
+            <article key={p.id} className="card sub-project-item">
               <div className="sub-project-head">
                 <span className="sub-project-icon">{p.icon}</span>
                 <h4>{p.title}</h4>
@@ -29,7 +22,7 @@ export default function SubProjects() {
                   <span key={t} className="chip">{t}</span>
                 ))}
               </div>
-            </a>
+            </article>
           ))}
         </div>
       </div>

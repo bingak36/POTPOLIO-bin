@@ -1,6 +1,6 @@
 import { useRef } from 'react'
-import { usePortfolio } from '../../store/PortfolioContext'
-import { THUMB_MAX_BYTES as MAX_BYTES } from '../../till/Admin'
+import { usePortfolio } from '../../store/usePortfolio'
+import { THUMB_MAX_BYTES as MAX_BYTES } from '../../utill/Admin'
 
 export default function AdminProjects() {
   const { data, upsert, remove, uid } = usePortfolio()
@@ -24,7 +24,7 @@ export default function AdminProjects() {
     reader.onload = () => {
       try {
         upsert('projects', { ...item, thumbnail: reader.result })
-      } catch (err) {
+      } catch {
         alert('저장 실패: localStorage 용량 초과 가능성. 작은 이미지로 시도.')
       }
     }

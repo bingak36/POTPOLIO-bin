@@ -1,4 +1,4 @@
-import { getSectionEyebrow } from '../../till/Sections'
+import { getSectionEyebrow } from '../../utill/Sections'
 import './SectionHeading.scss'
 
 export default function SectionHeading({

@@ -1,8 +1,8 @@
 import './About.scss'
-import { ABOUT_DEFAULTS } from '../../till/About'
-import { usePortfolio } from '../../store/PortfolioContext'
+import { ABOUT_DEFAULTS } from '../../utill/About'
+import { usePortfolio } from '../../store/usePortfolio'
 import SectionHeading from '../sectionHeading/SectionHeading'
-import { SECTION_HEADINGS } from '../../till/Sections'
+import { SECTION_HEADINGS } from '../../utill/Sections'
 
 export default function About() {
   const { data } = usePortfolio()

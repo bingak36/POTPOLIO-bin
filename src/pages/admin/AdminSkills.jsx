@@ -1,4 +1,4 @@
-import { usePortfolio } from '../../store/PortfolioContext'
+import { usePortfolio } from '../../store/usePortfolio'
 
 export default function AdminSkills() {
   const { data, upsert, remove, uid } = usePortfolio()

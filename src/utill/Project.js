@@ -1,3 +1,10 @@
+export const PROJECT_THUMBNAILS = {
+  p1: '/main-pro-no1.png',
+  p2: '',
+  p3: '',
+  p4: '',
+}
+
 export const DEFAULT_PROJECTS = [
   {
     id: 'p1',
@@ -8,7 +15,7 @@ export const DEFAULT_PROJECTS = [
     tags: ['Next.js', 'OpenAI API', 'FastAPI', 'PostgreSQL'],
     gradient: 'linear-gradient(135deg, #1c283f, #8f2637)',
     link: '',
-    thumbnail: '',
+    thumbnail: PROJECT_THUMBNAILS.p1,
   },
   {
     id: 'p2',
@@ -19,7 +26,7 @@ export const DEFAULT_PROJECTS = [
     tags: ['HTML5', 'CSS3', 'JavaScript', 'Swiper.js'],
     gradient: 'linear-gradient(135deg, #5f3d70, #19233a)',
     link: '',
-    thumbnail: '',
+    thumbnail: PROJECT_THUMBNAILS.p2,
   },
   {
     id: 'p3',
@@ -30,7 +37,7 @@ export const DEFAULT_PROJECTS = [
     tags: ['Next.js', 'OpenAI API', 'FastAPI', 'PostgreSQL'],
     gradient: 'linear-gradient(135deg, #341052, #8d6bff)',
     link: '',
-    thumbnail: '',
+    thumbnail: PROJECT_THUMBNAILS.p3,
   },
   {
     id: 'p4',
@@ -41,7 +48,7 @@ export const DEFAULT_PROJECTS = [
     tags: ['Next.js', 'OpenAI API', 'FastAPI', 'PostgreSQL'],
     gradient: 'linear-gradient(135deg, #1c283f, #8f2637)',
     link: '',
-    thumbnail: '',
+    thumbnail: PROJECT_THUMBNAILS.p4,
   },
 ]
 

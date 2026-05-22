@@ -1,6 +1,6 @@
 import Skills from '../components/skills/Skills'
 import PageHeader from '../components/pageHeader/PageHeader'
-import { PAGE_HEADERS } from '../till/PageHeader'
+import { PAGE_HEADERS } from '../utill/PageHeader'
 
 export default function SkillsPage() {
   return (

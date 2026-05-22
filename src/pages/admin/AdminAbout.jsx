@@ -1,7 +1,7 @@
 import { useRef } from 'react'
-import { usePortfolio } from '../../store/PortfolioContext'
-import { THUMB_MAX_BYTES as MAX_BYTES } from '../../till/Admin'
-import { ABOUT_DEFAULTS } from '../../till/About'
+import { usePortfolio } from '../../store/usePortfolio'
+import { THUMB_MAX_BYTES as MAX_BYTES } from '../../utill/Admin'
+import { ABOUT_DEFAULTS } from '../../utill/About'
 
 export default function AdminAbout() {
   const { data, patchSection } = usePortfolio()

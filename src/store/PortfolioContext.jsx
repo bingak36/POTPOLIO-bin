@@ -1,9 +1,10 @@
-import { createContext, useContext, useEffect, useState } from 'react'
-import { DEFAULT_SKILLS } from '../till/Skills'
-import { DEFAULT_PROJECTS } from '../till/Project'
-import { DEFAULT_SUB_PROJECTS } from '../till/SubProjects'
-import { ABOUT_DEFAULTS } from '../till/About'
-import { STORAGE_KEY } from '../till/Admin'
+import { useEffect, useState } from 'react'
+import { DEFAULT_SKILLS } from '../utill/Skills'
+import { DEFAULT_PROJECTS } from '../utill/Project'
+import { DEFAULT_SUB_PROJECTS } from '../utill/SubProjects'
+import { ABOUT_DEFAULTS } from '../utill/About'
+import { STORAGE_KEY } from '../utill/Admin'
+import { PortfolioContext } from './portfolioContext'
 
 const DEFAULT_DATA = {
   about: ABOUT_DEFAULTS,
@@ -12,15 +13,13 @@ const DEFAULT_DATA = {
   subProjects: DEFAULT_SUB_PROJECTS,
 }
 
-const PortfolioContext = createContext(null)
-
 function loadInitial() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (!raw) return DEFAULT_DATA
     const parsed = JSON.parse(raw)
     const migrateProject = (x) => ({ link: '', thumbnail: '', ...x })
-    const migrateSub = (x) => ({ link: '', ...x })
+    const migrateSub = ({ link: _l, repo: _r, ...rest }) => rest
     return {
       about: { ...ABOUT_DEFAULTS, ...(parsed.about ?? {}) },
       skills: parsed.skills ?? DEFAULT_DATA.skills,
@@ -71,10 +70,4 @@ export function PortfolioProvider({ children }) {
       {children}
     </PortfolioContext.Provider>
   )
-}
-
-export function usePortfolio() {
-  const ctx = useContext(PortfolioContext)
-  if (!ctx) throw new Error('usePortfolio must be inside PortfolioProvider')
-  return ctx
 }

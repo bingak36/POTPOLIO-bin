@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './Contact.scss'
-import { CONTACT_INFO, CONTACT_COPY } from '../../till/Contact'
+import { CONTACT_INFO, CONTACT_COPY } from '../../utill/Contact'
 import SectionHeading from '../sectionHeading/SectionHeading'
-import { SECTION_HEADINGS } from '../../till/Sections'
+import { SECTION_HEADINGS } from '../../utill/Sections'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
