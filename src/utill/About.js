@@ -1,5 +1,5 @@
 export const ABOUT_DEFAULTS = {
-  photo: '',
+  photo: 'Gradient.png',
   title: { prefix: '저는 ', name: '이런 사람', suffix: '입니다' },
   greeting: {
     headline: '안녕하세요, 풀스택 개발자 송현빈입니다.',
