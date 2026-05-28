@@ -1,12 +1,10 @@
 import './About.scss'
 import { ABOUT_DEFAULTS } from '../../utill/About'
-import { usePortfolio } from '../../store/usePortfolio'
 import SectionHeading from '../sectionHeading/SectionHeading'
 import { SECTION_HEADINGS } from '../../utill/Sections'
 
 export default function About() {
-  const { data } = usePortfolio()
-  const about = { ...ABOUT_DEFAULTS, ...(data.about ?? {}) }
+  const about = ABOUT_DEFAULTS
   const photo = about.photo
 
   return (

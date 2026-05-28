@@ -5,6 +5,3 @@ export const NAV = [
   { to: '/projects', label: './projects' },
   { to: '/contact', label: './contact' },
 ]
-
-export const ADMIN_KEYWORD = 'admin'
-export const ADMIN_BUFFER_TIMEOUT = 1500

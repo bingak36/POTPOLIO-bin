@@ -9,7 +9,6 @@ import AboutPage from './pages/AboutPage'
 import SkillsPage from './pages/SkillsPage'
 import ProjectsPage from './pages/ProjectsPage'
 import ContactPage from './pages/ContactPage'
-import AdminPage from './pages/admin/AdminPage'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -53,7 +52,6 @@ export default function App() {
           <Route path="/skills" element={<SkillsPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

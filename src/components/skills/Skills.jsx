@@ -1,16 +1,15 @@
 import './Skills.scss'
-import { usePortfolio } from '../../store/usePortfolio'
+import { DEFAULT_SKILLS } from '../../utill/Skills'
 import SectionHeading from '../sectionHeading/SectionHeading'
 import { SECTION_HEADINGS } from '../../utill/Sections'
 
 export default function Skills() {
-  const { data } = usePortfolio()
   return (
     <section id="skills" className="section skills">
       <div className="container">
         <SectionHeading heading={SECTION_HEADINGS.skills} />
         <div className="skills-grid">
-          {data.skills.map((s) => (
+          {DEFAULT_SKILLS.map((s) => (
             <div key={s.id} className="card skill-card">
               <div className="skill-head">
                 <span className="skill-icon">{s.icon}</span>

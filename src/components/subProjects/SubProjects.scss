@@ -23,9 +23,21 @@
   padding: 24px;
   color: inherit;
   text-decoration: none;
-  transition: transform 0.2s, border-color 0.2s;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 
-  &:hover { transform: translateY(-2px); }
+  &.is-link {
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent, #8d6bff);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent, #8d6bff);
+      outline-offset: 2px;
+    }
+  }
 
   h4 {
     font-size: 17px;

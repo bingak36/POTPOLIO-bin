@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
 import './Header.scss'
-import { NAV, ADMIN_KEYWORD, ADMIN_BUFFER_TIMEOUT } from '../../utill/Header'
+import { NAV } from '../../utill/Header'
 
 const THEME_KEY = 'portfolio-theme'
 
@@ -14,8 +14,6 @@ function getInitialTheme() {
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [theme, setTheme] = useState(getInitialTheme)
-  const navigate = useNavigate()
-  const bufferRef = useRef('')
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
@@ -28,29 +26,6 @@ export default function Header() {
       document.body.style.overflow = ''
     }
   }, [open])
-
-  useEffect(() => {
-    let timer
-    const onKey = (e) => {
-      const tag = e.target?.tagName
-      if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target?.isContentEditable) return
-      if (e.key.length !== 1) return
-
-      bufferRef.current = (bufferRef.current + e.key).toLowerCase().slice(-ADMIN_KEYWORD.length)
-      clearTimeout(timer)
-      timer = setTimeout(() => { bufferRef.current = '' }, ADMIN_BUFFER_TIMEOUT)
-
-      if (bufferRef.current === ADMIN_KEYWORD) {
-        bufferRef.current = ''
-        navigate('/admin')
-      }
-    }
-    window.addEventListener('keydown', onKey)
-    return () => {
-      window.removeEventListener('keydown', onKey)
-      clearTimeout(timer)
-    }
-  }, [navigate])
 
   const toggleTheme = () => {
     setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
