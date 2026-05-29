@@ -22,12 +22,18 @@
 .hero-name {
   font-size: 64px;
   font-weight: 800;
-  letter-spacing: -2px;
+  letter-spacing: 0;
   line-height: 1.05;
   background: linear-gradient(180deg, #fff 0%, #c8d2ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+:root[data-theme='light'] .hero-name {
+  background: linear-gradient(180deg, #0f1a3d 0%, #315fd8 56%, #7a2db8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .cursor {

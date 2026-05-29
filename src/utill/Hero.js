@@ -1,5 +1,5 @@
 export const HERO = {
-  badges: ['경성대학교', '모든 주 학습'],
+  badges: ['경복대학교'],
   name: '송현빈',
   cursor: '_',
   role: 'Fullstack Developer',

@@ -100,11 +100,12 @@
   align-items: center;
   min-height: 32px;
   padding: 6px 12px;
-  border: 1px solid var(--border-2);
+  border: 1px solid var(--border);
   border-radius: v.$radius-sm;
-  color: var(--text-dim);
-  background: rgba(20, 32, 74, 0.45);
+  color: var(--accent);
+  background: var(--chip-bg);
   font-size: 13px;
+  font-weight: 600;
   line-height: 1;
 }
 
